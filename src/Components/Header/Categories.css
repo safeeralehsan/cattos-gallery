@@ -1,0 +1,14 @@
+.categoriesNav {
+    background-color: #D62828;
+    font-family: 'Silkscreen', cursive;
+    color: white;
+}
+
+li.nav-item {
+    list-style: none;
+}
+
+.nav-item:hover {
+    color: #EAE2B7;
+}
+

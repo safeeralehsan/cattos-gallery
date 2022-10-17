@@ -1,0 +1,19 @@
+.navbar {
+    background-color: #003049;
+}
+
+a.navbar-brand {
+    font-family: 'Silkscreen', cursive;
+    font-size: 5vh; 
+    color: white;
+}
+
+a.navbar-brand:hover {
+    color: #EAE2B7;
+}
+
+li.login {
+    font-family: 'Silkscreen', cursive;
+    font-size: 2vh; 
+    color: white;
+}

@@ -4,7 +4,9 @@ import Main from './Components/Main';
 
 const App = () => {
   return(
-    <Main />
+    <div>
+      <Main />
+    </div>
   )
 }
 
