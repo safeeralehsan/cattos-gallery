@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { getDatabase, ref, onValue} from "firebase/database";
 import axios from 'axios';
 import ImagesModal from './ImagesModal';
 import './Images.css';
@@ -63,16 +64,33 @@ const Images = props => {
         await axios.put("https://cattos-app-default-rtdb.asia-southeast1.firebasedatabase.app/images/images/"+modalImageId+"/comments/"+commentKey+".json" ,newComment)
             .then((response) => {})
             .catch(err => console.log(err))
-        await axios.get("https://cattos-app-default-rtdb.asia-southeast1.firebasedatabase.app/images.json")
-            .then((response) => {setImageDetails(response.data)})
-            .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        axios.get("https://cattos-app-default-rtdb.asia-southeast1.firebasedatabase.app/images.json")
-            .then((response) => {setImageDetails(response.data)})
-            .catch(err => console.log(err))
-    },[]);
+    const handleDbUpdateToUI = commentUpdate => {
+        setImageDetails((prevImageDetails) => {
+            if (modalImageId!==null){
+                return {
+                    ...prevImageDetails,
+                    images: {
+                        ...prevImageDetails.images,
+                        [modalImageId]: {
+                            ...prevImageDetails.images[modalImageId],
+                            comments: commentUpdate    
+                        }
+                    }
+                }
+            }
+        })
+    }
+
+    useEffect(() =>{
+        const db = getDatabase();
+        const imagesRef = ref(db , 'images/');
+        onValue (imagesRef, (snapshot) => {
+            const data = snapshot.val();
+            setImageDetails(data);
+        })
+    }, [])
 
     return(
         <React.Fragment>
@@ -86,7 +104,8 @@ const Images = props => {
                 imageDetails= {imageDetails}
                 toggleImageModal={toggleImageModal}
                 addUserFeedback={handleUserFeedback}
-                signedIn={props.signedIn}/>
+                signedIn={props.signedIn}
+                handleDbUpdateToUI= {handleDbUpdateToUI}/>
         </React.Fragment>
     )
 }

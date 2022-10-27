@@ -53,8 +53,10 @@ const ImagesModal = props => {
             )
         })
     }
+
     let src = "";
     let alt = "";
+
     if (props.modalImageId!==null){
         src = require("../../../assets/img/category/" + 
                             props.imageDetails.images[props.modalImageId].category + "/" + 
@@ -62,6 +64,7 @@ const ImagesModal = props => {
                             ".jpg");
         alt = props.imageDetails.images[props.modalImageId].name;
     }
+
 
     return(
         <React.Fragment>

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Button} from 'reactstrap';
 
 const UserFeedback = props => {
     const [inputValue, setInputValue] = useState('');

@@ -12,7 +12,8 @@ const firebaseConfig = {
   storageBucket: "cattos-app.appspot.com",
   messagingSenderId: "683559561084",
   appId: "1:683559561084:web:1e163e10f93069d5ba66f9",
-  measurementId: "G-0X8JM4HZWM"
+  measurementId: "G-0X8JM4HZWM",
+  databaseURL: "https://cattos-app-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
 
 // Initialize Firebase
