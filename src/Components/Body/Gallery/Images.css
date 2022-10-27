@@ -1,5 +1,6 @@
 span.noCategories {
     font-family: 'Silkscreen', cursive;
+    font-weight: 700;
     font-size: calc(16px + 0.8vw); 
     color: #003049;
 }

@@ -24,6 +24,7 @@ const Login = props => {
                     className='position-absolute start-0 bottom-0 mb-2 ms-4'
                     style={{
                         fontFamily: "'Silkscreen', cursive",
+                        fontWeight: '700',
                         fontSize: 'calc(10px + 0.5vw)',
                         color: 'white'
                     }}>
