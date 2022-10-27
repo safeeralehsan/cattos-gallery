@@ -1,7 +1,7 @@
 import React from 'react';
+import Images from './Images';
 
-
-const Gallery = () => {
+const Gallery = props => {
     return(
         <React.Fragment>
                 <div 
@@ -13,14 +13,11 @@ const Gallery = () => {
                         borderColor: "#FCBF49",
                         borderWidth: "10px",
                         borderRadius: "50px",
-                        overflow: "auto"
+                        overflow: "scroll",
+                        overflowX: "hidden",
                         }}>
-
-                    {/* <img src={sleepcat1} alt="a sleepy cat" style={{ width: "33%", height: "33%", objectFit: "cover" }}/> */}
-                    
-
+                    <Images signedIn={props.signedIn} displayCategory={props.displayCategory}/>
                 </div>
-
         </React.Fragment>
     )
 }

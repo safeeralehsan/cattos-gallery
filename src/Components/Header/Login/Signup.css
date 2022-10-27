@@ -1,0 +1,9 @@
+span.loginSignupHeader{
+    font-family: 'Silkscreen', cursive;
+    font-size: calc(16px + 0.8vw); 
+    color: white;
+}
+
+h5.modal-title {
+    margin: auto;
+}
